@@ -1,21 +1,23 @@
 "use strict";
 
 const CACHE_PREFIX = "saju-habit-private-cache";
-const CACHE_VERSION = "v4";
+const CACHE_VERSION = "v5";
 const CACHE_NAME = `${CACHE_PREFIX}-${CACHE_VERSION}`;
 
+
 const APP_SHELL = [
-    "./",
-    "./index.html",
-   "./style.css",
-"./storage.js",
-"./security.js",
-"./app.js",
-    "./manifest.json",
-    "./assets/icons/icon-192.png",
-    "./assets/icons/icon-512.png",
-    "./assets/icons/icon-maskable-512.png"
+    "/",
+    "/index.html",
+    "/style.css",
+    "/storage.js",
+    "/security.js",
+    "/app.js",
+    "/manifest.json",
+    "/assets/icons/icon-192.png",
+    "/assets/icons/icon-512.png",
+    "/assets/icons/icon-maskable-512.png"
 ];
+
 
 self.addEventListener("install", (event) => {
     event.waitUntil(
@@ -97,7 +99,7 @@ self.addEventListener("fetch", (event) => {
                     const cache =
                         await caches.open(CACHE_NAME);
 
-                    return cache.match("./index.html");
+                    return cache.match("/index.html");
                 }
 
                 return new Response(
